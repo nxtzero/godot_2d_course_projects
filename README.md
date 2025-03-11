@@ -1,6 +1,9 @@
 # Complete Godot 2D: Develop Your Own 2D Games Using Godot 4
 
-This is my version of the projects, following the course.
+This is my version of the projects, following the course. 
+
+There are also C# versions of the projects in the course repo:
+- https://gitlab.com/GameDevTV/godot-complete-2d/mono-conversion.
 
 ## Installation
 
