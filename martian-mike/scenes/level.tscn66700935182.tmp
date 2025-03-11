@@ -1,0 +1,75 @@
+[gd_scene load_steps=12 format=3 uid="uid://46g2kydtknt0"]
+
+[ext_resource type="Script" uid="uid://c4flp1lfvryxh" path="res://scripts/level.gd" id="1_2q6dc"]
+[ext_resource type="PackedScene" uid="uid://wqxkvdao8gnv" path="res://scenes/bg.tscn" id="2_b121j"]
+[ext_resource type="PackedScene" uid="uid://dmgpdf6rnvivv" path="res://scenes/player.tscn" id="2_w7c3h"]
+[ext_resource type="Texture2D" uid="uid://kulkhe1gseln" path="res://icon.svg" id="3_w8frs"]
+[ext_resource type="PackedScene" uid="uid://cva8d0hvvbnkv" path="res://scenes/jump_pad.tscn" id="4_mx8sn"]
+[ext_resource type="PackedScene" uid="uid://c743j5qp62447" path="res://scenes/saw.tscn" id="5_ppgk2"]
+[ext_resource type="PackedScene" uid="uid://dapsk0uewdnmk" path="res://scenes/spike_ball.tscn" id="6_2r41h"]
+[ext_resource type="PackedScene" uid="uid://y0bbpu17y4q1" path="res://scenes/tile_map.tscn" id="7_klq6b"]
+[ext_resource type="PackedScene" uid="uid://3dchhk2frt72" path="res://scenes/start.tscn" id="9_8c41q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
+size = Vector2(526, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
+size = Vector2(790, 6)
+
+[node name="Level" type="Node2D"]
+script = ExtResource("1_2q6dc")
+
+[node name="BG" parent="." instance=ExtResource("2_b121j")]
+
+[node name="Player" parent="." instance=ExtResource("2_w7c3h")]
+position = Vector2(188, 129)
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(-36, -183)
+
+[node name="Sprite2D" type="Sprite2D" parent="Ground"]
+modulate = Color(0, 0, 0, 1)
+position = Vector2(-1, -3)
+scale = Vector2(4.10938, 0.125)
+texture = ExtResource("3_w8frs")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_mx8sn")
+
+[node name="Deathzone" type="Area2D" parent="."]
+position = Vector2(-171, 255)
+collision_layer = 4
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deathzone"]
+position = Vector2(332, 76)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="Objects" type="Node2D" parent="."]
+
+[node name="JumpPad" parent="Objects" instance=ExtResource("4_mx8sn")]
+position = Vector2(132, 209)
+
+[node name="JumpPad2" parent="Objects" instance=ExtResource("4_mx8sn")]
+position = Vector2(91, 209)
+jump_force = 350
+
+[node name="Traps" type="Node2D" parent="."]
+
+[node name="Saw" parent="Traps" instance=ExtResource("5_ppgk2")]
+position = Vector2(-17, 186)
+
+[node name="Saw2" parent="Traps" instance=ExtResource("5_ppgk2")]
+position = Vector2(-17, 125)
+
+[node name="SpikeBall" parent="Traps" instance=ExtResource("6_2r41h")]
+position = Vector2(372, 181)
+
+[node name="TileMap" parent="." instance=ExtResource("7_klq6b")]
+layer_0/tile_data = PackedInt32Array(917501, 393216, 0, 983037, 393216, 1, 1048573, 393216, 2, 917502, 458752, 0, 983038, 458752, 1, 1048574, 458752, 2, 917503, 458752, 0, 983039, 458752, 1, 1048575, 458752, 2, 851968, 458752, 0, 917504, 458752, 1, 983040, 458752, 2, 851969, 458752, 0, 917505, 458752, 1, 983041, 458752, 2, 851970, 458752, 0, 917506, 458752, 1, 983042, 458752, 2, 851971, 458752, 0, 917507, 458752, 1, 983043, 458752, 2, 851972, 458752, 0, 917508, 458752, 1, 983044, 458752, 2, 851973, 458752, 0, 917509, 458752, 1, 983045, 458752, 2, 851974, 458752, 0, 917510, 458752, 1, 983046, 458752, 2, 851975, 458752, 0, 917511, 458752, 1, 983047, 458752, 2, 851976, 458752, 0, 917512, 458752, 1, 983048, 458752, 2, 851977, 458752, 0, 917513, 458752, 1, 983049, 458752, 2, 851978, 458752, 0, 917514, 458752, 1, 983050, 458752, 2, 851979, 458752, 0, 917515, 458752, 1, 983051, 458752, 2, 851980, 458752, 0, 917516, 458752, 1, 983052, 458752, 2, 851981, 458752, 0, 917517, 458752, 1, 983053, 458752, 2, 851982, 458752, 0, 917518, 458752, 1, 983054, 458752, 2, 851983, 458752, 0, 917519, 458752, 1, 983055, 458752, 2, 851984, 458752, 0, 917520, 458752, 1, 983056, 458752, 2, 851985, 458752, 0, 917521, 458752, 1, 983057, 458752, 2, 851986, 458752, 0, 917522, 458752, 1, 983058, 458752, 2, 851987, 458752, 0, 917523, 458752, 1, 983059, 458752, 2, 851988, 458752, 0, 917524, 458752, 1, 983060, 458752, 2, 851989, 458752, 0, 917525, 458752, 1, 983061, 458752, 2, 851990, 458752, 0, 917526, 458752, 1, 983062, 458752, 2, 851991, 458752, 0, 917527, 458752, 1, 983063, 458752, 2, 851992, 458752, 0, 917528, 458752, 1, 983064, 458752, 2, 851993, 458752, 0, 917529, 458752, 1, 983065, 458752, 2, 851994, 524288, 0, 917530, 524288, 1, 983066, 458752, 2, 589838, 1114112, 1, 589839, 1179648, 1, 589840, 1245184, 1, 655361, 393216, 0, 720897, 393216, 1, 786433, 393216, 2, 655362, 458752, 0, 720898, 458752, 1, 786434, 458752, 2, 655363, 524288, 0, 720899, 524288, 1, 786435, 524288, 2, 458758, 1114112, 1, 458759, 1179648, 1, 458760, 1245184, 1, 851995, 393216, 0, 917531, 393216, 1, 720924, 393216, 0, 786460, 393216, 1, 851996, 655360, 1, 917532, 458752, 1, 655389, 393216, 0, 720925, 655360, 1, 786461, 458752, 1, 851997, 458752, 1, 917533, 458752, 1, 589854, 393216, 0, 655390, 655360, 1, 720926, 458752, 1, 786462, 458752, 1, 851998, 458752, 1, 917534, 458752, 1, 589855, 524288, 0, 655391, 589824, 1, 720927, 458752, 1, 786463, 458752, 1, 851999, 458752, 1, 655392, 524288, 0, 720928, 589824, 1, 786464, 458752, 1, 852000, 458752, 1, 917536, 458752, 1, 720929, 524288, 0, 786465, 524288, 1, 852001, 589824, 1, 917537, 458752, 1, 852002, 524288, 0, 917538, 524288, 1, 983067, 458752, 2, 983068, 458752, 2, 983069, 458752, 2, 983070, 458752, 2, 983071, 458752, 2, 983072, 458752, 2, 983073, 458752, 2, 983074, 524288, 2, 917535, 458752, 1)
+
+[node name="Start" parent="." instance=ExtResource("9_8c41q")]
+position = Vector2(204, 209)
+script = ExtResource("1_2q6dc")
+
+[connection signal="body_entered" from="Deathzone" to="." method="_on_deathzone_body_entered"]
