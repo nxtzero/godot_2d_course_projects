@@ -1,6 +1,6 @@
 # Complete Godot 2D: Develop Your Own 2D Games Using Godot 4
 
-This is my version of the projects following the course.
+This is my version of the projects, following the course.
 
 ## Installation
 
