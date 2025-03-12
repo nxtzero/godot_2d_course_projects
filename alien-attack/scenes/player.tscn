@@ -1,6 +1,6 @@
 [gd_scene load_steps=10 format=3 uid="uid://cwojj7jncm76t"]
 
-[ext_resource type="Script" path="res://scripts/player.gd" id="1_4w6t0"]
+[ext_resource type="Script" uid="uid://dto8uey6vx05n" path="res://scripts/player.gd" id="1_4w6t0"]
 [ext_resource type="Texture2D" uid="uid://bb50kgfxhe52f" path="res://assets/textures/player_ship.png" id="2_pjo7p"]
 [ext_resource type="AudioStream" uid="uid://dy1lxvv30ko0m" path="res://assets/audio/sfx_laser2.wav" id="3_boydn"]
 
